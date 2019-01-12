@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <MKL_VERSION>2019.0.117</MKL_VERSION>
+    <MKL_HOME>C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_$(MKL_VERSION)\windows</MKL_HOME>
+  </PropertyGroup>
+  <PropertyGroup>
+    <IncludePath>$(MKL_HOME)\mkl\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(MKL_HOME)\compiler\lib\intel64_win;$(MKL_HOME)\mkl\lib\intel64_win;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <UseIntelMKL>Parallel</UseIntelMKL>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>mkl_intel_thread.lib;mkl_core.lib;mkl_sequential.lib;mkl_rt.lib;libiomp5md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="MKL_VERSION">
+      <Value>$(MKL_VERSION)</Value>
+    </BuildMacro>
+    <BuildMacro Include="MKL_HOME">
+      <Value>$(MKL_HOME)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>
