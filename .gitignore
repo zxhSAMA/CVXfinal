@@ -16,6 +16,7 @@
 *.tlog
 *.idb
 *.lastbuildstate
+*.user
 
 */x86
 */x64
